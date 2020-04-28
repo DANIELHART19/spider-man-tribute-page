@@ -1,0 +1,656 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Bangers", cursive;
+  font-size: inherit;
+  background-color: rgb(223, 31, 45);
+}
+
+/* ANIMATIONS */
+
+@keyframes moveInLeft {
+  0% {
+    transform: translateX(-100rem);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInDown {
+  0% {
+    transform: translateY(-100rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveInUp {
+  0% {
+    transform: translateY(25rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* UTILITIES */
+
+.wrapper {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* new nav */
+
+.navigation__checkbox {
+  display: none;
+}
+
+.navigation__button {
+  background-color: #fff;
+  height: 7rem;
+  width: 7rem;
+  position: fixed;
+  top: 6rem;
+  right: 6rem;
+  border-radius: 50%;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  cursor: pointer;
+}
+
+.navigation__background {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 6.5rem;
+  right: 6.5rem;
+  background-image: url(../img/web-nav.png),
+    radial-gradient(rgba(223, 31, 45, 0.8), rgba(177, 19, 19, 0.8));
+  background-size: 100%;
+  z-index: 1000;
+  transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.navigation__nav {
+  height: 100vh;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  /*display: none;*/
+  opacity: 0;
+  width: 0;
+  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.navigation__list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+}
+
+.navigation__item {
+  margin: 2rem;
+}
+
+.navigation__link {
+  display: inline-block;
+  font-size: 4rem;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: #fff;
+
+  background-image: linear-gradient(
+    120deg,
+    transparent 0%,
+    transparent 50%,
+    rgb(0, 0, 0) 50%
+  );
+  background-size: 250%;
+  transition: all 0.6s;
+}
+
+.navigation__icon {
+  height: 100%;
+  transition: all 0.2s;
+}
+
+.navigation__icon:hover {
+  transform: scale(1.5);
+}
+
+.navigation__link:hover,
+.navigation__link:active {
+  background-position: 100%;
+  transform: translateX(1rem);
+  color: rgb(223, 31, 45);
+}
+
+.navigation__checkbox:checked ~ .navigation__background {
+  transform: scale(80);
+}
+
+.navigation__checkbox:checked ~ .navigation__nav {
+  opacity: 1;
+  width: 100%;
+}
+/*Old NAV */
+/* 
+.navigation {
+  background-color: rgb(0, 0, 0);
+  height: 10vh;
+  position: relative;
+}
+
+.logo-box {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+}
+
+.logo {
+  width: 100%;
+  font-size: 3.5rem;
+  color: #fff;
+}
+.logo:hover {
+  color: rgba(177, 19, 19);
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  padding: 2.5rem;
+  font-size: 2rem;
+}
+
+.navigation .menu a {
+  text-decoration: none;
+  margin: 3rem;
+  color: rgba(177, 19, 19);
+}
+
+.navigation .menu a:hover {
+  color: #fff;
+}
+*/
+/* HEADER */
+
+.header {
+  position: relative;
+  background-image: linear-gradient(
+      to right,
+      rgba(223, 31, 45, 0.5),
+      /* PRIMARY LIGHT RED*/ rgba(177, 19, 19, 0.5),
+      /* PRIMARY DARK RED*/ rgba(43, 55, 132, 0.5),
+      /* PRIMARY DARK BLUE*/ rgb(75, 113, 160, 0.5) /* PRIMARY LIGHT BLUE */
+    ),
+    url(../img/1123361-spider-man-homecoming-wallpapers-2024x1300-for-samsung.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: cover;
+  height: 100vh;
+}
+
+.header-text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.heading-primary {
+  font-size: 8rem;
+  color: #fff;
+  letter-spacing: 0.5rem;
+}
+
+.heading-primary--main {
+  display: block;
+  margin-bottom: 2rem;
+  animation: moveInLeft 0.6s;
+}
+
+.heading-primary--sub {
+  display: block;
+  margin-bottom: 2rem;
+  animation: moveInDown 1.5s;
+  animation-direction: alternate;
+}
+
+.heading-primary--sub-2 {
+  display: block;
+  animation: moveInUp 2.5s;
+  animation-direction: alternate;
+}
+
+/* About */
+
+.section-about {
+  text-align: center;
+  margin-bottom: 8rem;
+  margin-top: 8rem;
+}
+
+.heading-secondary {
+  margin: 10rem 0;
+  color: #fff;
+  font-size: 6rem;
+  text-shadow: 0 1rem 2.5rem black;
+}
+
+.heading-tertiary {
+  text-align: left;
+  margin-bottom: 2rem;
+  font-size: 4rem;
+  color: #fff;
+  text-shadow: 0 1rem 2.5rem black;
+}
+
+.paragraph {
+  text-align: left;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.heading-secondary:hover {
+  transform: scale(1.5) skewX(-15deg) skewY(-2deg);
+}
+
+.section-about-grid {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin: 0 auto;
+}
+
+.composition {
+  position: relative;
+}
+
+.composition__photo {
+  position: absolute;
+  width: 55%;
+  z-index: 10;
+  transition: all 0.3s;
+  box-shadow: 0 1.5rem 4rem black;
+}
+
+.composition__photo--p1 {
+  left: 0;
+  top: -2;
+}
+.composition__photo--p2 {
+  right: 0;
+  top: 2rem;
+}
+.composition__photo--p3 {
+  left: 20%;
+  top: 10rem;
+}
+.composition__photo--p1:hover {
+  z-index: 20;
+  transform: scale(1.1);
+}
+.composition__photo--p2:hover {
+  z-index: 20;
+  transform: scale(1.1);
+}
+.composition__photo--p3:hover {
+  z-index: 20;
+  transform: scale(2);
+}
+
+/* ENEMIES */
+
+.enemies {
+  background-image: linear-gradient(
+      to right,
+      rgba(43, 55, 132, 0.8),
+      rgb(75, 113, 160, 0.8)
+    ),
+    url(../img/enemiesbg.jpg);
+  text-align: center;
+  padding: 10rem 0;
+  transform: skewY(-7deg);
+}
+
+.enemies > * {
+  transform: skewY(7deg);
+}
+
+.enemies-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.enemies-heading {
+  color: #fff;
+  font-size: 6rem;
+  text-shadow: 0 1rem 2.5rem black;
+  margin-bottom: 8rem;
+  letter-spacing: 0.5rem;
+  animation: moveInLeft 1s;
+  transition: all 0.3s;
+}
+
+.enemies-heading:hover {
+  transform: scale(1.5);
+}
+
+.feature-box__img {
+  width: 100%;
+  height: 40vh;
+  border-radius: 3px;
+  margin-bottom: 2rem;
+}
+
+.feature-box {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: #fff;
+  transition: all 0.3s;
+  text-shadow: 0 1rem 2.5rem black;
+}
+
+.feature-box:hover {
+  transform: scale(1.1);
+}
+
+.feature-box__heading {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+/* SUITS */
+
+.suits {
+  padding: 10rem 0;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.suits__heading {
+  color: #fff;
+  font-size: 6rem;
+  padding: 2rem 0 6rem 0;
+  text-shadow: 0 1rem 2.5rem black;
+}
+
+.suits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.suits-card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 50rem;
+}
+.suits-card__side {
+  height: 50rem;
+  transition: all 1s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backface-visibility: hidden;
+  overflow: hidden;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+}
+.suits-card__side--front {
+  background-color: rgb(43, 55, 132);
+}
+.suits-card__side--back {
+  transform: rotateY(180deg);
+}
+.suits-card__side--back-1 {
+  background: url(../img/basic-suit.jpg) center center/cover; /*linear-gradient(
+    to right bottom,
+    rgb(43, 55, 132),
+    rgb(75, 113, 160)
+  ); */
+}
+
+.suits-card__side--back-2 {
+  background: url(../img/black-suit2.jpg) center center/cover;
+
+  /* background-image: linear-gradient(
+    to right bottom,
+    rgb(43, 55, 132),
+    rgb(75, 113, 160)
+  ); */
+}
+
+.suits-card__side--back-3 {
+  background: url(../img/avengers-suit.jpeg) center center/cover;
+  /* background-image: linear-gradient(
+    to right bottom,
+    rgb(43, 55, 132),
+    rgb(75, 113, 160)
+  ); */
+}
+.suits-card:hover .suits-card__side--front {
+  transform: rotateY(-180deg);
+}
+.suits-card:hover .suits-card__side--back {
+  transform: rotateY(0deg);
+}
+
+.suits-card__picture {
+  background-size: cover;
+  height: 23rem;
+  background-blend-mode: screen;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+.suits-card__picture--1 {
+  background-image: /*linear-gradient(
+      to right bottom,
+      rgb(43, 55, 132),
+      rgb(75, 113, 160)
+    ),*/ url(../img/basic-suit.jpg);
+}
+.suits-card__picture--2 {
+  background-image: url(../img/black-suit2.jpg);
+}
+.suits-card__picture--3 {
+  background-image: url(../img/avengers-suit.jpeg);
+}
+.suits-card__heading {
+  font-size: 2.8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: right;
+  color: #fff;
+  position: absolute;
+  top: 12rem;
+  right: 2rem;
+  width: 75%;
+  text-shadow: 0 1rem 2.5rem black;
+}
+.suits-card__heading-span {
+  padding: 1rem 1.5rem;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.suits-card__heading-span--1 {
+  background-image: linear-gradient(
+    to right bottom,
+    rgb(43, 55, 132, 0.85),
+    rgb(75, 113, 160, 0.85)
+  );
+}
+
+.suits-card__heading-span--2 {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(223, 31, 45, 0.5),
+    rgba(177, 19, 19, 0.5)
+  );
+}
+
+.suits-card__heading-span--3 {
+  background-image: linear-gradient(
+    to right bottom,
+    rgb(43, 55, 132, 0.85),
+    rgb(75, 113, 160, 0.85)
+  );
+}
+
+.card__details {
+  padding: 3rem;
+  color: #fff;
+}
+.card__details ul {
+  list-style: none;
+  width: 80%;
+  margin: 0 auto;
+}
+.card__details ul li {
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 0.25rem;
+  padding: 1rem;
+  text-shadow: 0 1rem 2.5rem black;
+}
+.card__details ul li:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+/* MOIVES */
+
+.movies {
+  background-color: rgb(43, 55, 132);
+  padding: 10rem 0;
+}
+
+.movies-heading {
+  font-size: 8rem;
+  color: white;
+  text-align: center;
+  margin: 3rem 0;
+  text-shadow: 0 1rem 2.5rem black;
+  transition: all 0.2s;
+}
+
+.movies-heading:hover {
+  transform: scale(1.4);
+}
+
+.movie {
+  width: 75%;
+  margin: 10rem auto;
+  padding: 6rem 6rem 8rem 6rem;
+  border-radius: 3px;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(223, 31, 45, 0.9),
+    rgba(177, 19, 19, 0.9)
+  );
+  box-shadow: 0 3rem 6rem rgba(black, 0.1);
+  transform: skewX(-12deg);
+  transition: all 0.2s;
+}
+
+.movie-text {
+  font-size: 1.7rem;
+  transform: skewX(12deg);
+  color: #fff;
+}
+
+.movie-text__heading {
+  margin: 0 0 3rem 0;
+  font-size: 4rem;
+  text-shadow: 0 1rem 2.5rem black;
+}
+
+.movie__vid {
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.movie__shape {
+  height: 17rem;
+  width: 17rem;
+  float: left;
+  transform: skewX(12deg);
+  margin-right: 3rem;
+}
+
+/* media queries */
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media (max-width: 900px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 37%;
+  }
+}
+
+@media (max-width: 900px) {
+  .enemies-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .enemies-grid {
+    grid-template-columns: 1fr;
+    width: 70%;
+  }
+}
+
+@media (max-width: 900px) {
+  .suits-grid {
+    grid-template-columns: 1fr;
+    width: 70%;
+  }
+}
