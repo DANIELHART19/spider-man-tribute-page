@@ -593,6 +593,8 @@ body {
   font-size: 1.7rem;
   transform: skewX(12deg);
   color: #fff;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 .movie-text__heading {
